@@ -5,11 +5,11 @@ export default function MaintenancePage() {
     <div className="maintenance-container">
       <div className="maintenance-content">
         <h1>Sibana</h1>
-        <p>Estamos a preparar algo bonito para ti 🌿</p>
+        <p>Estamos a preparar algo bonito para si 🌿</p>
         <div className="floating-flower">🌸</div>
       </div>
       <div className="social-section">
-          <p>Segue-nos ou entra em contacto:</p>
+          <p>Siga-nos ou entre em contacto:</p>
           <div className="social-icons">
             <a href="https://www.instagram.com/sibana.pt" target="_blank" rel="noopener noreferrer">
               <i className="fab fa-instagram"></i>
