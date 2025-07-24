@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Great+Vibes&display=swap');
+
+.maintenance-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    box-sizing: border-box;
+    background: linear-gradient(to bottom right, #fdfdfd, #f3f1ed);
+    font-family: 'Cormorant Garamond', serif;
+    text-align: center;
+    padding: 2rem;
+}
+.sibana-logo {
+    width: 150px;
+    height: auto;
+    margin-bottom: 1rem;
+    animation: fadeIn 1s ease-out forwards;
+}
+.maintenance-content {
+    max-width: 800px;
+    width: 100%;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+.maintenance-content h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 4.5rem;
+    color: #80604D;
+    margin-bottom: 0.5rem;
+    animation: fadeInDown 1s ease-out forwards;
+}
+
+.maintenance-content p {
+    font-size: 1.8rem;
+    color: #444;
+    animation: fadeInUp 1.5s ease-out forwards;
+}
+
+.floating-flower {
+    font-size: 2.5rem;
+    margin-top: 1.5rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+/* Social section */
+.social-section {
+    margin-top: auto;
+    margin-top: 2rem;
+    font-size: 1.4rem;
+    color: #555;
+}
+
+.social-icons {
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.social-icons a {
+    font-size: 1.6rem;
+    color: #80604D;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icons a:hover {
+    transform: scale(1.2);
+    color: #a6754f;
+}
