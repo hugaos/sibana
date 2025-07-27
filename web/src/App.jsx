@@ -1,11 +1,16 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-import './App.css'
-import MaintenancePage from './MaintenancePage';
-
+import MaintenancePage from './pages/MaintenancePage';
+import Navbar from './components/NavBar';
+import './index.css';
 function App() {
-  return <MaintenancePage />;
+  return (
+    <>
+      <Navbar />
+      <MaintenancePage />
+    </>
+  );
 }
 
 export default App;

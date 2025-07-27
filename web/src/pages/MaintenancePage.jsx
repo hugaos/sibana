@@ -1,4 +1,4 @@
-import './MaintenancePage.css';
+import '../styles/MaintenancePage.css';
 
 export default function MaintenancePage() {
   return (
