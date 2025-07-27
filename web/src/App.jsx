@@ -4,11 +4,12 @@ import viteLogo from '/vite.svg'
 import MaintenancePage from './pages/MaintenancePage';
 import Navbar from './components/NavBar';
 import './index.css';
+import HomePage from './pages/HomePage';
 function App() {
   return (
     <>
       <Navbar />
-      <MaintenancePage />
+      <HomePage />
     </>
   );
 }
