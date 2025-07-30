@@ -12,12 +12,23 @@
     text-align: center;
     padding: 2rem;
 }
+
+/* Logo Sibana */
 .sibana-logo {
-    width: 150px;
-    height: auto;
-    margin-bottom: 1rem;
-    animation: fadeIn 1s ease-out forwards;
+  display: block;
+  margin: 0 auto 1.5rem auto;
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  object-fit: contain;
 }
+
+@media (min-width: 768px) {
+  .sibana-logo {
+    max-width: 500px;
+  }
+}
+
 .maintenance-content {
     max-width: 800px;
     width: 100%;

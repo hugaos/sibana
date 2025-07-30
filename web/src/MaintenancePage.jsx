@@ -1,10 +1,15 @@
 import './MaintenancePage.css';
+import logo from './assets/LOGO_Principal_AF.png';
 
 export default function MaintenancePage() {
   return (
     <div className="maintenance-container">
       <div className="maintenance-content">
-        <h1>Sibana</h1>
+        <img
+            src={logo}
+            alt="Sibana Logo"
+            className="sibana-logo"
+        />
         <p>Estamos a preparar algo bonito para si 🌿</p>
         <div className="floating-flower">🌸</div>
       </div>
