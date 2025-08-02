@@ -9,7 +9,7 @@ export default function MaintenancePage() {
             alt="Sibana Logo"
             className="sibana-logo"
         />
-        <p>Estamos a preparar algo bonito para si 🌿</p>
+        <p>Estamos a preparar algo bonito para si</p>
         <div className="floating-flower">🌸</div>
       </div>
       <div className="social-section">
@@ -20,9 +20,6 @@ export default function MaintenancePage() {
             </a>
             <a href="https://www.facebook.com/sibana.pt" target="_blank" rel="noopener noreferrer">
               <i className="fab fa-facebook-f"></i>
-            </a>
-            <a href="https://github.com/hugaos" target="_blank" rel="noopener noreferrer">
-              <i className="fab fa-github"></i>
             </a>
           </div>
         </div>
