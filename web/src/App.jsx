@@ -5,9 +5,14 @@ import MaintenancePage from './pages/MaintenancePage';
 import Navbar from './components/NavBar';
 import './index.css';
 import HomePage from './pages/HomePage';
+import ScrollProgressBar from './components/ScrollProgressBar';
 function App() {
   return (
-    <MaintenancePage />
+    <>
+    <ScrollProgressBar />
+    <Navbar />
+    <HomePage />
+    </>
   );
 }
 

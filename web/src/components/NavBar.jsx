@@ -1,6 +1,7 @@
 // src/components/Navbar.jsx
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
+import { motion } from 'framer-motion'
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
@@ -12,12 +13,46 @@ export default function Navbar() {
     "Testemunhos",
     "Contacto",
   ]
+  const [visible, setVisible] = useState(true)
+  const [lastScrollY, setLastScrollY] = useState(0)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY
+      if (currentScrollY < 10) {
+        setVisible(true)
+      } else if (currentScrollY > lastScrollY) {
+        setVisible(false) // scroll para baixo
+      } else {
+        setVisible(true) // scroll para cima
+      }
+      setLastScrollY(currentScrollY)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [lastScrollY])
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [open]);
 
   return (
-    <header className="bg-beige z-50 shadow-sm">
-      <nav className="max-w-7xl mx-auto flex items-center justify-between px-6 py-8">
+    <motion.header
+        initial={{ y: -100 }}
+        animate={{ y: visible ? 0 : -100 }}
+        transition={{ duration: 0.3, ease: 'easeOut' }}
+        className="fixed w-full top-0 bg-beige z-50 shadow-sm transition-shadow"
+      >
+      <nav className="max-w-7xl mx-auto flex items-center justify-between px-4 py-4 md:px-6 md:py-8">
         {/* Marca apenas em mobile */}
-        <div className="md:hidden text-2xl font-cursive text-petrol">Sibana</div>
+        <div className="md:hidden text-xl font-cursive text-petrol">Sibana</div>
 
         {/* Links desktop */}
         <ul className="hidden md:flex gap-8 justify-center w-full">
@@ -44,23 +79,19 @@ export default function Navbar() {
           onClick={() => setOpen(o => !o)}
           aria-label="Toggle menu"
         >
-          
-             <Menu className="h-6 w-6 text-petrol" />
+          <Menu className="h-5 w-5 text-petrol" />
         </button>
       </nav>
 
       {/* Painel full‑screen mobile */}
-      <div
-        className={`
-          fixed inset-0 bg-beige flex flex-col items-center justify-center
-          space-y-8 z-40
-          transform transition-transform duration-500 ease-in-out
-          ${open
-            ? 'translate-x-0'
-            : 'translate-x-full'}
-        `}
+      <motion.div
+        initial={{ x: "100%" }}
+        animate={open ? { x: 0 } : { x: "100%" }}
+        transition={{ duration: 0.4, ease: "easeInOut" }}
+        className="fixed inset-0 bg-beige flex flex-col items-center justify-center
+                  space-y-8 z-40"
       >
-        {/* X de fechar no painel */}
+              {/* X de fechar no painel */}
         <button
           onClick={() => setOpen(false)}
           className="absolute top-4 right-4 p-2 focus:outline-none"
@@ -71,21 +102,18 @@ export default function Navbar() {
 
         {/* Itens do menu com espaçamento maior */}
         {navItems.map(item => (
-          <button
-            key={item}
-            onClick={() => setOpen(false)}
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
             className="appearance-none bg-transparent border-none p-0
-                       text-2xl font-serif text-petrol relative group
-                       transition-colors duration-300 cursor-pointer"
+                      text-2xl font-serif text-petrol relative group cursor-pointer"
+            onClick={() => setOpen(false)}
           >
             <span className="group-hover:text-gold">{item}</span>
-            <span
-              className="absolute left-0 -bottom-1 w-0 h-[1px] bg-gold
-                         group-hover:w-full transition-all duration-300"
-            />
-          </button>
+            <span className="absolute left-0 -bottom-1 w-0 h-[1px] bg-gold group-hover:w-full transition-all duration-300" />
+          </motion.button>
         ))}
-      </div>
-    </header>
+      </motion.div>
+    </motion.header>
   )
 }

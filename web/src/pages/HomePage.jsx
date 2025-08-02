@@ -40,14 +40,22 @@ export default function HomePage() {
             Serviços
             </h2>
             <div className="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {["Visitas Guiadas","Textos","Património","Turismo de Saudade"].map((s) => (
-                <div key={s} className="p-6 bg-white rounded-lg shadow hover:shadow-lg transition">
-                <h3 className="font-serif text-2xl text-petrol mb-2">{s}</h3>
-                <button className="font-serif text-petrol hover:text-gold transition">
-                    Saber mais
-                </button>
-                </div>
-            ))}
+            {["Visitas Guiadas","Textos","Património","Turismo de Saudade"].map((s, i) => (
+            <motion.div
+              key={s}
+              layout
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.2, duration: 0.8 , ease: 'easeInOut' }}
+              viewport={{ once: true , amount: 0.8 }}
+              className="p-6 bg-white rounded-lg shadow hover:shadow-lg transition"
+            >
+              <h3 className="font-serif text-2xl text-petrol mb-2">{s}</h3>
+              <button className="font-serif text-petrol hover:text-gold transition">
+                Saber mais
+              </button>
+            </motion.div>
+          ))}
             </div>
         </section>
     </motion.section>

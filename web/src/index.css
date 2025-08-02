@@ -16,3 +16,8 @@
 .text-petrol { color: var(--color-petrol); }
 .bg-gold { background-color: var(--color-gold); }
 .text-gold { color: var(--color-gold); }
+
+/* Reset body overflow */
+body {
+  overflow: auto;
+}
